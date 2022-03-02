@@ -1,0 +1,87 @@
+[
+    {
+    "make": "Ford", 
+    "model": "Explorer", 
+    "year": 2015, 
+    "color": "Black", 
+    "type": "SUV", 
+    "image": "/images/ford-explorer.jpg"
+    },
+    {
+    "make": "Subaru", 
+    "model": "Impreza", 
+    "year": 2018, 
+    "color": "White", 
+    "type": "Sedan", 
+    "image": "/images/subaru-impreza.jpg"
+    },
+    {
+    "make": "Acura", 
+    "model": "MDX", 
+    "year": 2019, 
+    "color": "Silver", 
+    "type": "SUV", 
+    "image": "/images/acura-mdx.png"
+    },
+    {
+    "make": "Chevy", 
+    "model": "Silverado", 
+    "year": 2020, 
+    "color": "Silver", 
+    "type": "Truck", 
+    "image": "/images/checy-silverado.jpg"
+    },
+    {
+    "make": "Honda", 
+    "model": "Civic", 
+    "year": 2016, 
+    "color": "White", 
+    "type": "Sedan", 
+    "image": "/images/honda-civic.jpg"
+    },
+    {
+    "make": "Jeep", 
+    "model": "Wrangler", 
+    "year": 2018, 
+    "color": "Green", 
+    "type": "SUV", 
+    "image": "/images/jeep-wrangler.jpg"
+    },
+    {
+    "make": "Ford", 
+    "model": "Aerostar", 
+    "year": 1992, 
+    "color": "Red", 
+    "type": "Minivan", 
+    "image": "/images/ford-aerostar.jpg"
+    },
+    {
+    "make": "Tesla", 
+    "model": "Roadster", 
+    "year": 2023, 
+    "color": "Red", 
+    "type": "Sedan", 
+    "image": "/images/tesla-roadster.jpg"
+    },
+    {
+    "make": "Fuller", 
+    "model": "Dymaxion", 
+    "year": 1933, 
+    "color": "Tin", 
+    "type": "Van", 
+    "image": "/images/fuller-dymaxion.jpg"
+    },
+    {
+    "make": "Hummer", 
+    "model": "H2", 
+    "year": 2009, 
+    "color": "Orange", 
+    "type": "SUV", 
+    "image": "/images/hummer-h2.jpg"
+    }
+]
+
+
+
+
+
