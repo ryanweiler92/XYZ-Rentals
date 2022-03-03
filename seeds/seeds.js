@@ -11,11 +11,11 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const { id } of cars) {
-    const newReview = await Review.create({
-      car_id: id,
-    });
-  }
+  // for (const { id } of cars) {
+  //   const newReview = await Review.create({
+  //     car_id: id,
+  //   });
+  // }
 
   process.exit(0);
 };
