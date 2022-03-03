@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Carousel } = require('bootstrap');
+//const { Carousel } = require('bootstrap');
 const { User, Car, Review } = require('../../models');
 
 // show all users
@@ -129,3 +129,5 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+module.exports = router;
