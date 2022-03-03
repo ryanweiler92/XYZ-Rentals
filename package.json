@@ -1,7 +1,22 @@
 {
+  "name": "xyz-rentals",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanweiler92/XYZ-Rentals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanweiler92/XYZ-Rentals/issues"
+  },
+  "homepage": "https://github.com/ryanweiler92/XYZ-Rentals#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "bootstrap-star-rating": "^4.1.2",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
