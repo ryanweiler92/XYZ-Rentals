@@ -13,13 +13,14 @@ router.get('/', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
     Review.create({
-        dents: req.body.condition,
-        scratches: req.body.odor,
-        odor: req.body.comfort,
-        stains: req.body.tech,
+        dents: req.body.dents,
+        scratches: req.body.scratches,
+        odor: req.body.odor,
+        stains: req.body.stains,
         overall_rating: req.body.overall_rating,
         review: req.body.review,
-        user_id: req.session.user_id,
+        user_id: req.body.user_id,
+        // user_id: req.session.user_id,
         car_id: req.body.car_id
     })
     .then(dbReviewData => res.json(dbReviewData))
