@@ -10,7 +10,7 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login');
-=======
+
 //get all reviews
 router.get('/', (req, res) => {
     Review.findAll({
@@ -49,6 +49,6 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-
+});
 
 module.exports = router;
