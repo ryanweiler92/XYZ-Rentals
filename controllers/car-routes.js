@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Car } = require('../models');
+const { Car, Review } = require('../models');
 
 //get all cars
 router.get('/', (req, res) => {
@@ -28,5 +28,43 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  // see one reviews 
+  router.get('/review/:id', withAuth, (req, res) => {
+      Car.findOne({
+          include: [{
+              model: Review,
+              attributes: [
+              'condition', 
+              'odor', 
+              'comfort', 
+              'tech', 
+              'review', 
+              'user_id', 
+              'car_id',
+              ],
+              include: {
+                  model: Car,
+                  attributes: [
+                      'make', 
+                      'model', 
+                      'year',
+                      'image']
+              } 
+          }
+        ]   
+      })
+      .then(dbCarData => {         
+              const reviews = dbCarData.get({ plain: true });
+
+              res.render('one-review', {
+                reviews,
+                loggedIn: req.session.loggedIn
+              });                        
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      })
+  })
 
   module.exports = router;
