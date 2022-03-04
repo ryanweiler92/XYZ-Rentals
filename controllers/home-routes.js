@@ -10,6 +10,7 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login');
+});
 
 //get all reviews
 router.get('/', (req, res) => {
@@ -29,10 +30,10 @@ router.get('/', (req, res) => {
             {
             model: Car,
             attributes: ['id', 'make', 'model', 'year', 'color', 'type', 'image'],
-            include: {
+            },
+            {
                 model: User,
                 attributes: ['username']
-            }
             }
         ]
     })
@@ -49,6 +50,6 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-});
+
 
 module.exports = router;

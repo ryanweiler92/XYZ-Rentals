@@ -13,4 +13,19 @@ router.get('/', (req, res) => {
       });
   });
 
+  router.get('/:id', (req, res) => {
+    Car.findOne()
+      .then(dbCarData => {
+        if(!dbCarData) {
+          res.status(404).json({ messahe: 'No cars found!'});
+          return;
+        }
+        res.json(dbCarData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 module.exports = router;
