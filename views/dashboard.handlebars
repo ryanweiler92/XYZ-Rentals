@@ -1,0 +1,14 @@
+<section>
+{{#if posts.length}}
+<section>
+  <h2>Your Reviews</h2>
+  <ol>
+    {{#each reviews as |review|}}
+    <li>
+      {{> review-info review}}
+      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit review</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}

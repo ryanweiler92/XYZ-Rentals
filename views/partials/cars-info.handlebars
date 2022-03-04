@@ -1,33 +1,18 @@
-<div class="container mt-3">
-    <div class="row">
-    {{#each this}}
-    <div class="card align-items-center bg-light col-5 m-2">
-        <div class="card-block text-center pb-1">
-            <h5 class="card-title">{{make}} {{model}}</h5>
-
-            <div class="row justify-content-center">
-            <div class="mb-3 col-6">
-            <ul class="list-group list-group-flush border border-3 border-info mb-2">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Year: <span class="badge bg-primary rounded-pill">{{year}}</span></li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Color: <span class="badge bg-primary rounded-pill">{{color}}</span></li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Type: <span class="badge bg-primary rounded-pill">{{type}}</span></li>
-            </ul>
-            </div>
-            </div>
-
-            <div class="row justify-content-center">
-            <div class="mb-3 col-6">
-                <img src="{{image}}" class="img-fluid" class="rounded" alt="{{make}}_{{model}}">
-            </div>
-            </div>
-
-        <a  type="submit" class="btn btn-primary" value="{{id}}" id="reviews-btn">See Reviews</a>
-        <a  type="submit" class="btn btn-primary" id="post-btn">Submit Review</a>
-        </div>
-    </div>
-    {{/each}}
-    </div>
+<!-- card with car info -->
+{{#each this}}
+<div class="col">
+	<div class="car-page-card card">
+		<!-- car image -->
+		<img src="{{image}}" class="card-img-top" alt="{{make}}_{{model}}">
+		<div class="card-body">
+			<!-- car year, make, model -->
+			<h5 class="card-title">{{year}} {{make}} {{model}}</h5>
+			<h6 class="">Style: {{type}}</h6>
+			<div class="d-flex justify-content-center">
+				<button type="submit" class="btn btn-sm btn-outline-dark me-2" value="{{id}}">See Reviews</button>
+				<button type="submit" class="btn btn-sm btn-outline-dark me-2" id="post-btn">Submit Reviews</button>
+			</div>
+		</div>
+	</div> 
 </div>
+{{/each}}
