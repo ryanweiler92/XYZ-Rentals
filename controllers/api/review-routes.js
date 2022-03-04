@@ -13,10 +13,11 @@ router.get('/', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
     Review.create({
-        condition: req.body.condition,
-        odor: req.body.odor,
-        comfort: req.body.comfort,
-        tech: req.body.tech,
+        dents: req.body.condition,
+        scratches: req.body.odor,
+        odor: req.body.comfort,
+        stains: req.body.tech,
+        overall_rating: req.body.overall_rating,
         review: req.body.review,
         user_id: req.session.user_id,
         car_id: req.body.car_id
