@@ -1,0 +1,22 @@
+<!-- 1st review card -->
+{{#each this}}
+<div class="col">
+	<div class="card">
+		<!-- vehicle image -->
+		<img src="{{car.image}}" class="card-img-top" alt="{{car.make}}_{{car.model}}">
+		<div class="card-body">
+			<!-- car year, make, model  -->
+			<h5 class="card-title">{{car.year}} {{car.make}} {{car.model}}</h5>
+            <h5>Dents</h5>
+            <input id="dents" name="dents" value={{dents}} type="checkbox" class="answer-box" disabled >
+			<!-- stars for review -->
+			<p>{{review.overall_rating}}</p>
+			<!-- customer review -->
+			<p class="card-text">{{review}}</p>
+			<!-- customer name -->
+			<p>-{{user.username}}</p>
+		</div>
+        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit review</a>
+	</div>
+</div>
+{{/each}}

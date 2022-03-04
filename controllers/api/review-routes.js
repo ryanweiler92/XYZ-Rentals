@@ -1,13 +1,39 @@
 const router = require('express').Router();
-const { Review } = require('../../models');
+const { Review, Car, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get all reviews
 router.get('/', (req, res) => {
     Review.findAll()
     .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
+    });
+});
+
+
+//get review by id
+router.get('/:id', (req, res) => {
+    Review.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: Car,
+          attributes: ['id', 'make', 'model', 'year', 'type', 'image', ],
+        },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    })
+    .then(dbReviewData => res.json(dbReviewData))
+    .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
     });
 });
 
