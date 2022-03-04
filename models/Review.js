@@ -11,19 +11,23 @@ Review.init(
             primaryKey: true,
             autoIncrement: true    
         },
-        condition: {
-            type: DataTypes.INTEGER,
+        dents: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        scratches: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         odor: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        comfort: {
-            type: DataTypes.INTEGER,
+        stains: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        tech: {
+        overall_rating: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
