@@ -24,10 +24,10 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Review,
-                attributes: ['id', 'condition', 'odor', 'comfort', 'tech', 'review',],
+                attributes: ['id', 'dents', 'scratches', 'odor', 'stains', 'overall_rating', 'review', 'user_id', 'car_id'],
                 include: {
                     model: Car,
-                    attributes: ['make', 'model']
+                    attributes: ['id', 'make', 'model']
                 }
             }
         ]
@@ -48,7 +48,9 @@ router.get('/:id', (req, res) => {
 // create a new user
 router.post('/', (req, res) => {
     User.create({
+        
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     })
     .then(dbUserData => {
@@ -70,7 +72,7 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.username
+            email: req.body.email
         }
     })
     .then(dbUserData => {

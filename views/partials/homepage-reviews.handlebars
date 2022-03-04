@@ -1,0 +1,19 @@
+<!-- 1st review card -->
+{{#each this}}
+<div class="col">
+	<div class="card">
+		<!-- vehicle image -->
+		<img src="{{car.image}}" class="card-img-top" alt="{{car.make}}_{{car.model}}">
+		<div class="card-body">
+			<!-- car year, make, model  -->
+			<h5 class="card-title">{{car.year}} {{car.make}} {{car.model}}</h5>
+			<!-- stars for review -->
+			<p>{{review.overall_rating}}</p>
+			<!-- customer review -->
+			<p class="card-text">{{review}}</p>
+			<!-- customer name -->
+			<p>-{{user.username}}</p>
+		</div>
+	</div>
+</div>
+{{/each}}
