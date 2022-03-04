@@ -1,4 +1,4 @@
-<div class="row row-cols-1 row-cols-lg-5 g-4">
+<div class="row row-cols-1 row-cols-lg-5 g-4 mb-3">
 	<!-- card with car info -->
 	{{#each this}}
 	<div class="col">
@@ -8,10 +8,10 @@
 			<div class="card-body">
 				<!-- car year, make, model -->
 				<h5 class="card-title">{{year}} {{make}} {{model}}</h5>
-				<h6>{{type}}</h6>
+				<h6 class="">Style: {{type}}</h6>
 				<div class="d-flex justify-content-center">
-					<button type="submit" class="btn btn-outline-dark me-2" value="{{id}}">See Reviews</button>
-					<button type="submit" class="btn btn-outline-dark me-2" id="post-btn">Submit Reviews</button>
+					<button type="submit" class="btn btn-sm btn-outline-dark me-2" value="{{id}}">See Reviews</button>
+					<button type="submit" class="btn btn-sm btn-outline-dark me-2" id="post-btn">Submit Reviews</button>
 				</div>
 			</div>
 		</div> 
