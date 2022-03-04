@@ -19,6 +19,8 @@ router.get('/', withAuth, (req, res) => {
         'stains',
         'overall_rating',
         'review',
+        'user_id',
+        'car_id',
         'created_at'
       ],
       include: [

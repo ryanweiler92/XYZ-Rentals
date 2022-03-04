@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
 {{#if posts.length}}
 <section>
   <h2>Your Reviews</h2>
@@ -6,9 +6,20 @@
     {{#each reviews as |review|}}
     <li>
       {{> review-info review}}
-      <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit review</a>
+      
     </li>
     {{/each}}
   </ol>
 </section>
-{{/if}}
+{{/if}} --}}
+
+
+
+
+	<section class="container">
+		<div class="row row-cols-1 row-cols-lg-4 g-4 justify-content-center">
+			{{> dashboard-reviews reviews}}
+		</div>
+	</section>
+
+  <script src="/javascript/checkbox.js"></script>
