@@ -81,6 +81,35 @@ router.get('/', (req, res) => {
       })
   });
 
+  //post new review
+  router.get('/reviews/:id', withAuth, (req, res) => {
+      Car.findByPk(req.params.id, {
+          attributes: [
+            'id',
+            'make',
+            'model',
+            'year',
+            'color',
+            'type',
+            'image'
+          ]
+      })
+      .then(dbCarData => {
+          if (dbCarData) {
+              const car = dbCarData.get({ plain: true });
 
+              res.render('submit-review', {
+                  car,
+                  loggedIn: true
+              });
+          } else {
+              res.status(404).end();
+          }
+      })
+      .catch(err => {
+          console.log(err)
+          res.status(500).json(err)
+      })
+  })
 
   module.exports = router;
