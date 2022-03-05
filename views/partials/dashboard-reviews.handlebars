@@ -7,16 +7,33 @@
 		<div class="card-body">
 			<!-- car year, make, model  -->
 			<h5 class="card-title">{{car.year}} {{car.make}} {{car.model}}</h5>
-            <h5>Dents</h5>
-            <input id="dents" name="dents" value={{dents}} type="checkbox" class="answer-box" disabled >
-			<!-- stars for review -->
-			<p>{{review.overall_rating}}</p>
+            <div class="form-check">
+            <input id="dents" name="dents" type="checkbox" class="form-check-input" disabled>
+            <label class="form-check-label" for="dents">Dents</label>
+            </div>
+            <div class="form-check">
+            <input id="scratches" name="scratches" type="checkbox" class="form-check-input" disabled>
+            <label class="form-check-label" for="scratches">Scratches</label>
+            </div>
+            <div class="form-check">
+            <input id="odor" name="odor" type="checkbox" class="form-check-input" disabled>
+            <label class="form-check-label" for="odor">Odor</label>
+            </div>
+            <div class="form-check">
+            <input id="stains" name="stains" type="checkbox" class="form-check-input" disabled>
+            <label class="form-check-label" for="stains">Stains</label>
+            </div>
+            <div>
+                <label for="overall-rating">Overall Rating</label>
+                <input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">             
+            </div>
 			<!-- customer review -->
 			<p class="card-text">{{review}}</p>
 			<!-- customer name -->
-			<p>-{{user.username}}</p>
+			<p>-Review: {{user.username}}</p>
 		</div>
-        <a href="/dashboard/edit/{{review.id}}" class="edit-link">Edit review</a>
+        <a href="/dashboard/edit/{{review.id}}" type="submit" class="btn btn-primary edit-link">Edit review</a>
+        <a href="/dashboard" type="submit" class="btn btn-danger" id="delete-btn">Delete Review</a>
 	</div>
 </div>
 {{/each}}
