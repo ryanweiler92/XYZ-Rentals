@@ -12,20 +12,20 @@ Review.init(
             autoIncrement: true    
         },
         dents: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING,
+            // allowNull: true
         },
         scratches: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING,
+            // allowNull: true
         },
         odor: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING,
+            // allowNull: true
         },
         stains: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING,
+            // allowNull: true
         },
         overall_rating: {
             type: DataTypes.INTEGER,

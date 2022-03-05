@@ -58,12 +58,14 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/:id', withAuth, (req, res) => {
     Review.update({
-        condition: req.body.condition,
+        dents: req.body.dents,
+        scratches: req.body.scratches,
         odor: req.body.odor,
-        comfort: req.body.comfort,
-        tech: req.body.tech,
+        stains: req.body.stains,
+        overall_rating: req.body.overall_rating,
         review: req.body.review,
-        user_id: req.session.user_id,
+        user_id: req.body.user_id,
+        // user_id: req.session.user_id,
         car_id: req.body.car_id
     },
     {
