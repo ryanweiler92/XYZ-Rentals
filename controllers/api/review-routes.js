@@ -12,23 +12,43 @@ router.get('/', (req, res) => {
     });
 });
 
-
-//get review by id
-router.get('/:id', (req, res) => {
-    Review.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [
-        {
-          model: Car,
-          attributes: ['id', 'make', 'model', 'year', 'type', 'image', ],
+  // see one car reviews 
+  router.get('/:id', withAuth, (req, res) => {
+    Review.findAll({
+        where: {
+            car_id: req.params.id
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+          attributes: [
+              'id',
+              'dents',
+              'scratches',
+              'odor',
+              'stains',
+              'overall_rating',
+              'review',
+              'user_id',
+              'car_id',
+            ],
+
+        include: [
+            {
+                model: Car,
+                attributes: [            
+                'id',
+                'make',
+                'model',
+                'year',
+                'color',
+                'type',
+                'image']                 
+            },
+          //   {
+          //       model: User,
+          //       attributes: [
+          //           'username'
+          //       ]
+          //   }
+      ]   
     })
     .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {
@@ -36,6 +56,30 @@ router.get('/:id', (req, res) => {
         res.status(400).json(err);
     });
 });
+
+// //get review by id
+// router.get('/:id', (req, res) => {
+//     Review.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       include: [
+//         {
+//           model: Car,
+//           attributes: ['id', 'make', 'model', 'year', 'type', 'image', ],
+//         },
+//         {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       ]
+//     })
+//     .then(dbReviewData => res.json(dbReviewData))
+//     .catch(err => {
+//         console.log(err);
+//         res.status(400).json(err);
+//     });
+// });
 
 router.post('/', withAuth, (req, res) => {
     Review.create({
