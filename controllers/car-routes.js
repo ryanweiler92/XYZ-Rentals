@@ -30,54 +30,8 @@ router.get('/', (req, res) => {
       });
   });
 
-//   // see one car reviews 
-//   router.get('/reviews/:id', withAuth, (req, res) => {
-//       Car.findByPk(req.params.id, {
-//           include: [{
-//               model: Review,
-//               attributes: [
-//                 'id',
-//                 'dents',
-//                 'scratches',
-//                 'odor',
-//                 'stains',
-//                 'overall_rating',
-//                 'review',
-//                 'user_id',
-//                 'car_id',
-//               ],
-
-//               include: {
-//                   model: Car,
-//                   attributes: [            
-//                   'id',
-//                   'make',
-//                   'model',
-//                   'year',
-//                   'color',
-//                   'type',
-//                   'image']
-                  
-//               }
-//               }
-//         //   }
-//         ]   
-//       })
-//       .then(dbCarData => {         
-//               const car = dbCarData.get({ plain: true });
-//               res.render('car-reviews', {
-//                 car,
-//                 loggedIn: req.session.loggedIn
-//               });                        
-//       })
-//       .catch(err => {
-//           res.status(500).json(err);
-//       })
-//   });
-
-
   // see one car reviews 
-  router.get('/reviews/:id', withAuth, (req, res) => {
+  router.get('/:id', withAuth, (req, res) => {
       Review.findAll({
           where: {
               car_id: req.params.id
@@ -106,22 +60,23 @@ router.get('/', (req, res) => {
                   'type',
                   'image']                 
               },
-            //   {
-            //       model: User,
-            //       attributes: [
-            //           'username'
-            //       ]
-            //   }
-        ]   
+              {
+                  model: User,
+                  attributes: [
+                      'username'
+                  ]
+              }
+        ],   
       })
       .then(dbReviewData => {         
-              const reviews = dbReviewData.get({ plain: true });
+              const reviews = dbReviewData.map(review => review.get({plain: true }));
               res.render('car-reviews', {
                 reviews,
                 loggedIn: req.session.loggedIn
               });                        
       })
       .catch(err => {
+          console.log(err)
           res.status(500).json(err);
       })
   });
