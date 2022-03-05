@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Car, Review } = require('../models');
+const { Car, Review, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all cars
@@ -30,35 +30,93 @@ router.get('/', (req, res) => {
       });
   });
 
-  // see one reviews 
-  router.get('/review/:id', withAuth, (req, res) => {
-      Car.findOne({
-          include: [{
-              model: Review,
-              attributes: [
-              'condition', 
-              'odor', 
-              'comfort', 
-              'tech', 
-              'review', 
-              'user_id', 
-              'car_id',
+//   // see one car reviews 
+//   router.get('/reviews/:id', withAuth, (req, res) => {
+//       Car.findByPk(req.params.id, {
+//           include: [{
+//               model: Review,
+//               attributes: [
+//                 'id',
+//                 'dents',
+//                 'scratches',
+//                 'odor',
+//                 'stains',
+//                 'overall_rating',
+//                 'review',
+//                 'user_id',
+//                 'car_id',
+//               ],
+
+//               include: {
+//                   model: Car,
+//                   attributes: [            
+//                   'id',
+//                   'make',
+//                   'model',
+//                   'year',
+//                   'color',
+//                   'type',
+//                   'image']
+                  
+//               }
+//               }
+//         //   }
+//         ]   
+//       })
+//       .then(dbCarData => {         
+//               const car = dbCarData.get({ plain: true });
+//               res.render('car-reviews', {
+//                 car,
+//                 loggedIn: req.session.loggedIn
+//               });                        
+//       })
+//       .catch(err => {
+//           res.status(500).json(err);
+//       })
+//   });
+
+
+  // see one car reviews 
+  router.get('/reviews/:id', withAuth, (req, res) => {
+      Review.findAll({
+          where: {
+              car_id: req.params.id
+          },
+            attributes: [
+                'id',
+                'dents',
+                'scratches',
+                'odor',
+                'stains',
+                'overall_rating',
+                'review',
+                'user_id',
+                'car_id',
               ],
-              include: {
+
+          include: [
+              {
                   model: Car,
-                  attributes: [
-                      'make', 
-                      'model', 
-                      'year',
-                      'image']
-              } 
-          }
+                  attributes: [            
+                  'id',
+                  'make',
+                  'model',
+                  'year',
+                  'color',
+                  'type',
+                  'image']                 
+              },
+            //   {
+            //       model: User,
+            //       attributes: [
+            //           'username'
+            //       ]
+            //   }
         ]   
       })
-      .then(dbCarData => {         
-              const reviews = dbCarData.get({ plain: true });
-
-              res.render('one-review', {
+      .then(dbReviewData => {         
+              const reviews = dbReviewData.get({ plain: true });
+              res.render('car-reviews', {
                 reviews,
                 loggedIn: req.session.loggedIn
               });                        
@@ -66,6 +124,8 @@ router.get('/', (req, res) => {
       .catch(err => {
           res.status(500).json(err);
       })
-  })
+  });
+
+
 
   module.exports = router;
