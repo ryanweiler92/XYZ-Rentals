@@ -44,31 +44,41 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-  // NEED TO FINISH
-  router.put('edit/:id', withAuth, (req, res) => {
-    Review.update({
-        dents: req.body.dents,
-        scratches: req.body.scratches,
-        odor: req.body.odor,
-        stains: req.body.stains,
-        overall_rating: req.body.overall_rating,
-        review: req.body.review,        
-    },
-    {
-        where: {
-            id: req.params.id
+  //edit review
+  router.get('/edit/:id', withAuth, (req, res) => {
+    Review.findByPk(req.params.id, {
+        attributes: [
+          'id',  
+          'dents',
+          'scratches',
+          'odor',
+          'stains',
+          'overall_rating',
+          'review',
+          'user_id',
+          'car_id',
+          'created_at'
+        ],
+      include: [
+        {
+          model: Car,
+          attributes: ['id', 'make', 'model', 'year', 'type', 'image']
         }
+      ]
     })
-    .then(dbReviewData => {
-        if(!dbReviewData) {
-            res.status(404).json({ message: 'No review found!'});
-            return;
-        }        
-    })
-    .catch(err => {
+      .then(dbReviewData => {
+        const review = dbReviewData.get({ plain: true });
+
+        res.render('edit-review', {
+            review,
+            loggedIn: req.session.loggedIn
+        })
+      })
+      .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });
-});
+      });
+  });
+
 
   module.exports = router;
