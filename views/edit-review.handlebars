@@ -12,30 +12,30 @@
 					<p>Did the vehicle have any of the following: </p>
 					<!-- dents boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="{{post.dents}}">
+						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="{{review.dents}}">
 						<label class="form-check-label" for="inlineCheckbox1">Dents</label>
 					</div>
 					<!-- scratches boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="{{post.scratches}}">
+						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="{{review.scratches}}">
 						<label class="form-check-label" for="inlineCheckbox2">Scratches</label>
 					</div>
 					<!-- odor boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="{{post.odor}}">
+						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="{{review.odor}}">
 						<label class="form-check-label" for="inlineCheckbox2">Odor</label>
 					</div>
 					<!-- stains boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="{{post.stains}}">
+						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="{{review.stains}}">
 						<label class="form-check-label" for="inlineCheckbox2">Stains</label>
 					</div>
 					<!-- stars for review -->
 					<p>How was your overall expierence with this vehicle</p>
-					<input id="overall-rating" name="overall" class="rating" value="{{post.overall_rating}}" type="number" data-size="xs"> 
+					<input id="overall-rating" name="overall" class="rating" value="{{review.overall_rating}}" type="number" data-size="xs"> 
 					<div class="mb-3">
 						<label for="exampleFormControlTextarea1" class="form-label">Please tell us more about your expierence:</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3">{{post.review}}</textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3">{{review.review}}</textarea>
 					</div>
 					<div class="d-grid">
 						<button type="submit" class="btn btn-lg btn-outline-dark me-2" id="submit-review-btn">Submit Review</button>
@@ -44,4 +44,5 @@
 			</div>
 		</div>
 	</div>
-<script src="/javascript/post-review.js"></script>
+
+<script src="/javascript/edit-review.js"></script>
