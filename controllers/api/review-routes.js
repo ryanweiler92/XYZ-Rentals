@@ -108,8 +108,8 @@ router.put('/:id', withAuth, (req, res) => {
         stains: req.body.stains,
         overall_rating: req.body.overall_rating,
         review: req.body.review,
-        user_id: req.body.user_id,
-        // user_id: req.session.user_id,
+        // user_id: req.body.user_id,
+        user_id: req.session.user_id,
         car_id: req.body.car_id
     },
     {
