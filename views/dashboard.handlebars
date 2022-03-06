@@ -1,25 +1,9 @@
-{{!-- <section>
-{{#if posts.length}}
-<section>
-  <h2>Your Reviews</h2>
-  <ol>
-    {{#each reviews as |review|}}
-    <li>
-      {{> review-info review}}
-      
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}} --}}
-
-
-
-
 	<section class="container">
+    <div class="d-flex justify-content-center">
+      <h2>Your Reviews</h2>
+    </div>
 		<div class="row row-cols-1 row-cols-lg-4 g-4 justify-content-center">
 			{{> dashboard-reviews reviews}}
 		</div>
 	</section>
 
-  <script src="/javascript/checkbox.js"></script>
