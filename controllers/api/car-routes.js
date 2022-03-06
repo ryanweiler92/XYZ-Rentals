@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Car } = require('../../models');
+const { Car, User, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -14,7 +14,38 @@ router.get('/', (req, res) => {
   });
 
   router.get('/:id', (req, res) => {
-    Car.findOne()
+    Car.findByPk(req.params.id, {
+      include: [{
+          model: Review,
+          attributes: [
+            'id',
+            'dents',
+            'scratches',
+            'odor',
+            'stains',
+            'overall_rating',
+            'review',
+            'user_id',
+            'car_id',
+          ],
+          // include: {
+          // model: User,
+          // attributes: ['username'],
+          include: {
+              model: Car,
+              attributes: [            
+              'id',
+              'make',
+              'model',
+              'year',
+              'color',
+              'type',
+              'image']
+          }
+          }
+        // }
+    ]   
+  })
       .then(dbCarData => {
         if(!dbCarData) {
           res.status(404).json({ messahe: 'No cars found!'});

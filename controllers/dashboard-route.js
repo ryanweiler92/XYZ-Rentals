@@ -41,8 +41,5 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// NEED TO FINISH
-router.put('/edit/:id', withAuth, (req, res) => {
 
-})
 module.exports = router;

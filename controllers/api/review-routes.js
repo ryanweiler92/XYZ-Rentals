@@ -12,23 +12,43 @@ router.get('/', (req, res) => {
     });
 });
 
-
-//get review by id
-router.get('/:id', (req, res) => {
-    Review.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [
-        {
-          model: Car,
-          attributes: ['id', 'make', 'model', 'year', 'type', 'image', ],
+  // see one car reviews 
+  router.get('/:id', withAuth, (req, res) => {
+    Review.findAll({
+        where: {
+            car_id: req.params.id
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+          attributes: [
+              'id',
+              'dents',
+              'scratches',
+              'odor',
+              'stains',
+              'overall_rating',
+              'review',
+              'user_id',
+              'car_id',
+            ],
+
+        include: [
+            {
+                model: Car,
+                attributes: [            
+                'id',
+                'make',
+                'model',
+                'year',
+                'color',
+                'type',
+                'image']                 
+            },
+          //   {
+          //       model: User,
+          //       attributes: [
+          //           'username'
+          //       ]
+          //   }
+      ]   
     })
     .then(dbReviewData => res.json(dbReviewData))
     .catch(err => {
@@ -36,6 +56,30 @@ router.get('/:id', (req, res) => {
         res.status(400).json(err);
     });
 });
+
+// //get review by id
+// router.get('/:id', (req, res) => {
+//     Review.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       include: [
+//         {
+//           model: Car,
+//           attributes: ['id', 'make', 'model', 'year', 'type', 'image', ],
+//         },
+//         {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       ]
+//     })
+//     .then(dbReviewData => res.json(dbReviewData))
+//     .catch(err => {
+//         console.log(err);
+//         res.status(400).json(err);
+//     });
+// });
 
 router.post('/', withAuth, (req, res) => {
     Review.create({
@@ -45,8 +89,8 @@ router.post('/', withAuth, (req, res) => {
         stains: req.body.stains,
         overall_rating: req.body.overall_rating,
         review: req.body.review,
-        user_id: req.body.user_id,
-        // user_id: req.session.user_id,
+        // user_id: req.body.user_id,
+        user_id: req.session.user_id,
         car_id: req.body.car_id
     })
     .then(dbReviewData => res.json(dbReviewData))
@@ -58,12 +102,14 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/:id', withAuth, (req, res) => {
     Review.update({
-        condition: req.body.condition,
+        dents: req.body.dents,
+        scratches: req.body.scratches,
         odor: req.body.odor,
-        comfort: req.body.comfort,
-        tech: req.body.tech,
+        stains: req.body.stains,
+        overall_rating: req.body.overall_rating,
         review: req.body.review,
-        user_id: req.session.user_id,
+        user_id: req.body.user_id,
+        // user_id: req.session.user_id,
         car_id: req.body.car_id
     },
     {
