@@ -31,14 +31,5 @@ async function newFormHandler(event){
         res.status(500).json(err);
       });
 }
-    
-  
-    // if (response.ok) {
-    //     document.location.replace('/dashboard');
-    // } else {
-    //     alert(response.statusText)
-//     };
-// });
-// };
 
 document.querySelector('#submit-review-btn').addEventListener('click', newFormHandler);
