@@ -25,7 +25,7 @@ async function newFormHandler(event){
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(document.location.replace('/dashboard'))
+      }).then(document.location.replace('/dashboard'))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
