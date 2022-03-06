@@ -25,12 +25,20 @@ async function newFormHandler(event){
         headers: {
             'Content-Type': 'application/json'
         }
-    });
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText)
-    }
-};
+    }).then(document.location.replace('/dashboard'))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+}
+    
+  
+    // if (response.ok) {
+    //     document.location.replace('/dashboard');
+    // } else {
+    //     alert(response.statusText)
+//     };
+// });
+// };
 
 document.querySelector('#submit-review-btn').addEventListener('click', newFormHandler);
