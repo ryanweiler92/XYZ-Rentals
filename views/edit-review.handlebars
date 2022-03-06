@@ -1,9 +1,3 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Review
-  </h2>
-    <form id="edit-review-form">
 <div class="container card col-lg-8 mt-5">
 		<div class="row g-0">
 			<div class="col-lg-6">
@@ -18,30 +12,30 @@
 					<p>Did the vehicle have any of the following: </p>
 					<!-- dents boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="checked">
+						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="{{post.dents}}">
 						<label class="form-check-label" for="inlineCheckbox1">Dents</label>
 					</div>
 					<!-- scratches boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="checked">
+						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="{{post.scratches}}">
 						<label class="form-check-label" for="inlineCheckbox2">Scratches</label>
 					</div>
 					<!-- odor boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="checked">
+						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="{{post.odor}}">
 						<label class="form-check-label" for="inlineCheckbox2">Odor</label>
 					</div>
 					<!-- stains boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="checked">
+						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="{{post.stains}}">
 						<label class="form-check-label" for="inlineCheckbox2">Stains</label>
 					</div>
 					<!-- stars for review -->
 					<p>How was your overall expierence with this vehicle</p>
-					<input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-size="xs"> 
+					<input id="overall-rating" name="overall" class="rating" value="{{post.overall_rating}}" type="number" data-size="xs"> 
 					<div class="mb-3">
 						<label for="exampleFormControlTextarea1" class="form-label">Please tell us more about your expierence:</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3"></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3">{{post.review}}</textarea>
 					</div>
 					<div class="d-grid">
 						<button type="submit" class="btn btn-lg btn-outline-dark me-2" id="submit-review-btn">Submit Review</button>
@@ -50,11 +44,4 @@
 			</div>
 		</div>
 	</div>
-  </form>
-</article>
-
-{{> reviews car.reviews}}
-
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
 <script src="/javascript/post-review.js"></script>
