@@ -10,7 +10,7 @@ async function newFormHandler(event){
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
-    console.log(dents, scratches, odor, stains, overall_rating, review, car_id)
+    console.log(dents, scratches, odor, stains, overall_rating, review)
 
     const response = await fetch (`/api/reviews/${id}`, {
         method: 'PUT',
@@ -21,16 +21,15 @@ async function newFormHandler(event){
             stains,
             overall_rating,
             review
-        }),
+                }),
         headers: {
             'Content-Type': 'application/json'
         }
-    });
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText)
-    }
-};
+      }).then(document.location.replace('/dashboard'))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+}
 
-document.querySelector('#edit-review-btn').addEventListener('click', newFormHandler);
+document.querySelector('#submit-review-btn').addEventListener('click', newFormHandler);
