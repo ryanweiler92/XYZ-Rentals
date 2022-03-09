@@ -10,25 +10,26 @@
 					<!-- car make, model -->
 					{{> edit-car-info review}}
 					<p>Did the vehicle have any of the following: </p>
+					{{!-- {{> edit-car-checkbox }} --}}
 					<!-- dents boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="{{review.dents}}">
+						<input class="form-check-input" type="checkbox" id="dents" name="dents" {{review.dents}}>
 						<label class="form-check-label" for="inlineCheckbox1" >Dents</label>
 					</div>
 					<!-- scratches boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="{{review.scratches}}">
+						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" {{review.scratches}} >
 						<label class="form-check-label" for="inlineCheckbox2">Scratches</label>
 					</div>
 					<!-- odor boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="{{review.odor}}">
-						<label class="form-check-label" for="inlineCheckbox2" value="{{review.odor}}">Odor</label>
+						<input class="form-check-input" type="checkbox" id="odor" name="odor" {{review.odor}}>
+						<label class="form-check-label" for="inlineCheckbox2">Odor</label>
 					</div>
 					<!-- stains boolean -->
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="{{review.stains}}">
-						<label class="form-check-label" for="inlineCheckbox2" value="{{review.stains}}">Stains</label>
+						<input class="form-check-input" type="checkbox" id="stains" name="stains" {{review.stains}}>
+						<label class="form-check-label" for="inlineCheckbox2">Stains</label>
 					</div>
 					<!-- stars for review -->
 					<p>How was your overall expierence with this vehicle</p>
@@ -39,10 +40,12 @@
 					</div>
 					<div class="d-grid">
 						<button type="submit" class="btn btn-lg btn-outline-dark me-2" id="submit-review-btn">Submit Changes</button>
+						<button type="button" class="btn btn-danger" id="delete-btn">Delete Review</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<script src="/javascript/edit-review.js"></script>
+<script src="/javascript/edit-review.js"></script> 
+<script src="/javascript/delete-review.js"></script>

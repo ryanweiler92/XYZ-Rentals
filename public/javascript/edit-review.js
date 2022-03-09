@@ -42,10 +42,10 @@ async function newFormHandler(event){
             'Content-Type': 'application/json'
         }
       }).then(document.location.replace('/dashboard'))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+    //   .catch(err => {
+    //     console.log(err);
+    //     res.status(500).json(err);
+    //   });
 }
 
 document.querySelector('#submit-review-btn').addEventListener('click', newFormHandler);
