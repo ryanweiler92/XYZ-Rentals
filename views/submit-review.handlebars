@@ -1,7 +1,7 @@
-<div class="container card col-lg-8 mt-5">
+<div class="container col-lg-8">
+	<div class="card my-3">
 		<div class="row g-0">
 			<div class="col-lg-6">
-				<!-- car image -->
 				<img src="{{car.image}}" class="img-fluid" alt="{{car.make}}_{{car.model}}">
 			</div>
 			<div class="col-lg-6">
@@ -13,29 +13,30 @@
 					<!-- dents boolean -->
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="dents" name="dents" value="checked">
-						<label class="form-check-label" for="inlineCheckbox1">Dents</label>
+						<label class="form-check-label" for="dents">Dents</label>
 					</div>
 					<!-- scratches boolean -->
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="scratches" name="scratches" value="checked">
-						<label class="form-check-label" for="inlineCheckbox2">Scratches</label>
+						<label class="form-check-label" for="scratches">Scratches</label>
 					</div>
 					<!-- odor boolean -->
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="odor" name="odor" value="checked">
-						<label class="form-check-label" for="inlineCheckbox2">Odor</label>
+						<label class="form-check-label" for="odor">Odor</label>
 					</div>
 					<!-- stains boolean -->
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="stains" name="stains" value="checked">
-						<label class="form-check-label" for="inlineCheckbox2">Stains</label>
+						<label class="form-check-label" for="stains">Stains</label>
 					</div>
 					<!-- stars for review -->
 					<p>How was your overall expierence with this vehicle</p>
-					<input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-size="xs"> 
+					<input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-size="xs">
+					<!-- text area for comments -->
 					<div class="mb-3">
-						<label for="exampleFormControlTextarea1" class="form-label">Please tell us more about your expierence:</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3"></textarea>
+						<label for="comments" class="form-label">Please tell us more about your expierence:</label>
+						<textarea class="form-control" id="comments" name="review" rows="3"></textarea>
 					</div>
 					<div class="d-grid">
 						<button type="submit" class="btn btn-lg btn-outline-dark me-2" id="submit-review-btn">Submit Review</button>
@@ -44,5 +45,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 <script src="/javascript/post-review.js"></script>
