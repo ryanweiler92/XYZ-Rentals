@@ -27,15 +27,12 @@
                 <label for="overall-rating">Overall Rating</label>
                 <input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">             
             </div>
-            <input name="{{id}}">
 			<!-- customer review -->
 			<p class="card-text">{{review}}</p>
 			<!-- customer name -->
 			<p>-Review: {{user.username}}</p>
 		</div>
-        <a href="/dashboard/edit/{{id}}" type="submit" class="btn btn-primary edit-link">Edit review</a>
-
-        <a type="submit" class="btn btn-danger" id="delete-btn">Delete Review</a>
+        <a href="/dashboard/edit/{{id}}" type="submit" class="btn btn-outline-dark edit-link">Edit review</a>
 
 	</div>
 </div>

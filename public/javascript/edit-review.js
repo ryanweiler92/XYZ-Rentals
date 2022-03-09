@@ -6,7 +6,7 @@ async function newFormHandler(event){
     let odor = document.querySelector('input[name="odor"]:checked') !==null;
     let stains = document.querySelector('input[name="stains"]:checked') !==null;
     const overall_rating = document.querySelector('input[name=overall]').value
-    const review = document.querySelector('textarea[name=review').value.trim();
+    const review = document.querySelector('textarea[name=review]').value.trim();
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
