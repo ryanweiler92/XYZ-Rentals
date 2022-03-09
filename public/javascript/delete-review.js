@@ -1,10 +1,11 @@
 async function deleteFormHandler(event){
     event.preventDefault();
 
-    const id = document.querySelector('input[name=id]').value
-    console.log(id)
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
 
-    const response = await fetch(`api/reviews/${id}`, {
+      const response = await fetch (`/api/reviews/${id}`, {
         method: 'DELETE'
     });
 
