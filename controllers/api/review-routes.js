@@ -129,4 +129,26 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+router.delete('/:id', withAuth, (req, res) => {
+    console.log('id', req.params.id);
+    Review.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbReviewData => {
+        if (!dbReviewData) {
+          res.status(404).json({ message: 'No review found with this id' });
+          return;
+        }
+        res.json(dbReviewData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
+
 module.exports = router;
