@@ -1,16 +1,15 @@
-<div class="container card col-lg-8 mt-5">
+<div class="container col-lg-8">
+	<div class="card my-3">
 		<div class="row g-0">
 			<div class="col-lg-6">
-				<!-- car image -->
-            {{> edit-car-image review}}
+				<img src="{{review.car.image}}" class="img-fluid" alt="{{review.car.make}}_{{review.car.model}}">
 			</div>
 			<div class="col-lg-6">
 				<div class="card-body">
-					<h5 class="card-title">How Did You Like The:</h5>
+					<h5 class="card-title">How Did You Like The</h5>
 					<!-- car make, model -->
-					{{> edit-car-info review}}
+					<h4>{{review.car.year}} {{review.car.make}} {{review.car.model}}</h4>
 					<p>Did the vehicle have any of the following: </p>
-					{{!-- {{> edit-car-checkbox }} --}}
 					<!-- dents boolean -->
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="checkbox" id="dents" name="dents" {{review.dents}}>
@@ -33,19 +32,21 @@
 					</div>
 					<!-- stars for review -->
 					<p>How was your overall expierence with this vehicle</p>
-					<input id="overall-rating" name="overall" class="rating" value="{{review.overall_rating}}" type="number" data-size="xs"> 
+					<input id="overall-rating" name="overall" class="rating" value="{{review.overall_rating}}" type="number" data-size="xs">
+					<!-- text area for comments -->
 					<div class="mb-3">
-						<label for="exampleFormControlTextarea1" class="form-label">Please tell us more about your expierence:</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" name="review" rows="3">{{review.review}}</textarea>
+						<label for="comments" class="form-label">Please tell us more about your expierence:</label>
+						<textarea class="form-control" id="comments" name="review" rows="3">{{review.review}}</textarea>
 					</div>
 					<div class="d-grid">
-						<button type="submit" class="btn btn-lg btn-outline-dark me-2" id="submit-review-btn">Submit Changes</button>
-						<button type="button" class="btn btn-danger" id="delete-btn">Delete Review</button>
+						<button type="submit" class="btn btn-lg btn-outline-dark me-2 mb-2" id="submit-review-btn">Submit Changes</button>
+						<button type="button" class="btn btn-outline-danger me-2" id="delete-btn">Delete Review</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 <script src="/javascript/edit-review.js"></script> 
 <script src="/javascript/delete-review.js"></script>

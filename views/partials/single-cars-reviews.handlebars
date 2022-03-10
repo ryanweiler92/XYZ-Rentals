@@ -1,6 +1,6 @@
 {{#each this}}
 <div class="col">
-	<div class="card">
+	<div class="card mb-4">
 		<!-- vehicle image -->
 		<img src="{{car.image}}" class="card-img-top" alt="{{car.make}}_{{car.model}}">
 		<div class="card-body">
@@ -29,7 +29,7 @@
 			<!-- customer review -->
 			<p class="card-text">{{review}}</p>
 			<!-- customer name -->
-			<p>-Review: {{user.username}}</p>
+			<p>-{{user.username}}</p>
 		</div>
 	</div>
 </div>

@@ -1,42 +1,40 @@
 <!-- 1st review card -->
 {{#each this}}
 <div class="col">
-	<div class="card">
+	<div class="card hover">
 		<!-- vehicle image -->
 		<img src="{{car.image}}" class="card-img-top" alt="{{car.make}}_{{car.model}}">
 		<div class="card-body">
 			<!-- car year, make, model  -->
 			<h5 class="card-title">{{car.year}} {{car.make}} {{car.model}}</h5>
-            <div class="form-check">
-            <input id="dents" name="dents" type="checkbox" class="form-check-input" {{dents}} disabled>
-            <label class="form-check-label" for="dents">Dents</label>
-            </div>
-            <div class="form-check">
-            <input id="scratches" name="scratches" type="checkbox" class="form-check-input" {{scratches}} disabled>
-            <label class="form-check-label" for="scratches">Scratches</label>
-            </div>
-            <div class="form-check">
-            <input id="odor" name="odor" type="checkbox" class="form-check-input" {{odor}} disabled>
-            <label class="form-check-label" for="odor">Odor</label>
-            </div>
-            <div class="form-check">
-            <input id="stains" name="stains" type="checkbox" class="form-check-input" {{stains}} disabled>
-            <label class="form-check-label" for="stains">Stains</label>
-            </div>
-            <div>
-                <label for="overall-rating">Overall Rating</label>
-                <input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">             
-            </div>
-            <input name="{{id}}">
+			<div class="form-check">
+				<input id="dents" name="dents" type="checkbox" class="form-check-input" {{dents}} disabled>
+				<label class="form-check-label" for="dents">Dents</label>
+			</div>
+			<div class="form-check">
+				<input id="scratches" name="scratches" type="checkbox" class="form-check-input" {{scratches}} disabled>
+				<label class="form-check-label" for="scratches">Scratches</label>
+			</div>
+			<div class="form-check">
+				<input id="odor" name="odor" type="checkbox" class="form-check-input" {{odor}} disabled>
+				<label class="form-check-label" for="odor">Odor</label>
+			</div>
+			<div class="form-check">
+				<input id="stains" name="stains" type="checkbox" class="form-check-input" {{stains}} disabled>
+				<label class="form-check-label" for="stains">Stains</label>
+			</div>
+			<div>
+				<label for="overall-rating">Overall Rating</label>
+				<input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">             
+			</div>
 			<!-- customer review -->
 			<p class="card-text">{{review}}</p>
 			<!-- customer name -->
 			<p>-Review: {{user.username}}</p>
+			<div class="d-grid">
+				<a href="/dashboard/edit/{{id}}" type="submit" class="btn btn-outline-dark edit-link">Edit review</a>
+			</div>
 		</div>
-        <a href="/dashboard/edit/{{id}}" type="submit" class="btn btn-primary edit-link">Edit review</a>
-
-        <a type="submit" class="btn btn-danger" id="delete-btn">Delete Review</a>
-
 	</div>
 </div>
 {{/each}}

@@ -1,16 +1,16 @@
 <!-- card with car info -->
 {{#each this}}
 <div class="col">
-	<div class="car-page-card card">
+	<div class="car-page-card hover card">
 		<!-- car image -->
 		<img src="{{image}}" class="card-img-top" alt="{{make}}_{{model}}">
 		<div class="card-body">
 			<!-- car year, make, model -->
 			<h5 class="card-title">{{year}} {{make}} {{model}}</h5>
-			<h6 class="">Style: {{type}}</h6>
-			<div class="d-flex justify-content-center">
-				<a type="submit" href="cars/{{id}}" class="btn btn-sm btn-outline-dark me-2" id="reviews-btn">See Reviews</a>
-				<a type="submit" href="cars/reviews/{{id}}" class="btn btn-sm btn-outline-dark me-2" id="post-btn">Submit Reviews</a>
+			<h6>{{type}}</h6>
+			<div class="d-grid gap-2">
+				<a type="submit" href="cars/{{id}}" class="btn btn-outline-dark" id="reviews-btn">See Reviews</a>
+				<a type="submit" href="cars/reviews/{{id}}" class="btn btn-outline-dark" id="post-btn">Submit Reviews</a>
 			</div>
 		</div>
 	</div> 
