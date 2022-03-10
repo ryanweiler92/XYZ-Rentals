@@ -10,7 +10,8 @@
 			<!-- stars for review -->
 			<p>{{review.overall_rating}}</p>
 			<!-- customer review -->
-			<p class="card-text">{{review}}</p>
+                <label for="overall-rating">Overall Rating</label>
+                <input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">   
 			<!-- customer name -->
 			<p>-{{user.username}}</p>
 		</div>

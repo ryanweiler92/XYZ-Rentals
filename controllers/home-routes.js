@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
             'review',
             'user_id',
             'car_id',
+            'created_at'
         ],
         include: [
             {
@@ -25,6 +26,9 @@ router.get('/', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
+        ],
+        order: [
+          ['created_at', 'DESC']
         ]
     })
     .then(dbReviewData => {
