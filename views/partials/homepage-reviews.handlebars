@@ -8,12 +8,12 @@
 			<!-- car year, make, model  -->
 			<h5 class="card-title">{{car.year}} {{car.make}} {{car.model}}</h5>
 			<!-- stars for review -->
-			<p>{{review.overall_rating}}</p>
-			<!-- customer review -->
-                <label for="overall-rating">Overall Rating</label>
-                <input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">   
+			<label for="overall-rating">Overall Rating</label>
+			<input id="overall-rating" name="overall" class="rating" value={{overall_rating}} type="number" data-readonly="true" data-size="xs">
+			<!-- customer review -->                
+			<p>{{review}}</p>   
 			<!-- customer name -->
-			<p>-{{user.username}}</p>
+			<p>- {{user.username}}</p>
 		</div>
 		{{!-- <a href="/cars" type="submit" class="btn btn-info edit-link">See full review</a> --}}
 	</div>
