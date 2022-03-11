@@ -4,6 +4,5 @@
 
 .hover:hover {
 	box-shadow: none;
-	transition: 0.4s; 
-
+	transition: 0.4s;
 }
